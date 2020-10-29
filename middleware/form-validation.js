@@ -1,11 +1,11 @@
 const errors = require("../utils/strings").errorMsg;
 
 function loginRegForm(req, res, next) {
-    const { email, password, rePassword } = req.body;
-    const regex = /[a-z0-9]{3,}/i;
+    const { username, password, rePassword } = req.body;
+    const regex = /[a-z0-9]{5,}/i;
 
-    if (regex.test(email) === false || regex.test(password) === false) {
-        res.locals.error.push(errors.wrongEmail);
+    if (regex.test(username) === false || regex.test(password) === false) {
+        res.locals.error.push(errors.wrongUname);
         res.locals.error.push(errors.wrongLength);
         res.locals.error.push(errors.wrongChar);
 
