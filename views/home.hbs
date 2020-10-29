@@ -3,7 +3,7 @@
 
 <h1 class="text-center">Courses</h1>
 <section>
-    <a href="/course/create" class="btn btn-warning ">Create Course</a>
+    <a href="/create" class="btn btn-warning ">Create Course</a>
     <form class="search float-right">
         <label>Search: </label>
         <input type="text">
@@ -75,9 +75,9 @@
 
         </div>
 
-        {{#unless}}
+        {{#unless courses}}
         <h4 class="text-center">No courses...</h4>
-        {{#unless}}
+        {{/unless}}
 
     </div>
 </div>

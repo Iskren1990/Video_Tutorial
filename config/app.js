@@ -1,6 +1,6 @@
 const { errCtn } = require("../utils/error");
-const { userStatus } = require("../middleware/user-permissions");
-const { setTitle } = require("../middleware/page-title");
+const { userStatus } = require("../middleware/index");
+const { setTitle } = require("../middleware/index");
 
 
 function appConfig(app) {

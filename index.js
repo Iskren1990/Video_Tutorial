@@ -7,7 +7,7 @@ const app = require("express")();
 require("./config/db-connection")(config);
 require("./config/express")(app);
 require("./config/app")(app);
-// require("./routes/routes")(app);
+require("./routes/routes")(app);
 
 app.use(globalErrorHandler);
 
