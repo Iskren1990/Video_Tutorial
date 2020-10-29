@@ -4,7 +4,9 @@
   "description": "Soft Uni exam prep",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index",
+    "start-dev": "nodemon index"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,14 @@
   "bugs": {
     "url": "https://github.com/Iskren1990/Video_Tutorial/issues"
   },
-  "homepage": "https://github.com/Iskren1990/Video_Tutorial#readme"
+  "homepage": "https://github.com/Iskren1990/Video_Tutorial#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.11"
+  }
 }
