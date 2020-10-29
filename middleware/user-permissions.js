@@ -27,7 +27,10 @@ function userStatus(req, res, next) {
     if (status === undefined) {
         req.user = { isLogged: false }
     } else {
-        req.user = jwt.verify(status, key) || { isLogged: false };
+        req.user = jwt.verify(status, key, (err, suc) => {
+            if (err) return { isLogged: false }
+            return suc;
+        });
     }
 
     next();

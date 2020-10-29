@@ -1,6 +1,9 @@
-const errors = require("../utils/strings").errorMsg;
+const errors = require("../config/strings").errorMsg;
 
 function loginRegForm(req, res, next) {
+
+    req.body = sanitizeObj(req.body);
+
     const { username, password, rePassword } = req.body;
     const regex = /[a-z0-9]{5,}/i;
 
@@ -19,10 +22,15 @@ function loginRegForm(req, res, next) {
         next(res.locals.error);
         return;
     }
+
+
     next();
 }
 
 function createEditForm(req, res, next) {
+    
+    req.body = sanitizeObj(req.body);
+
     let { name, price, imageUrl, description, brand } = req.body;
     price = price.replace(",", ".");
 
@@ -51,3 +59,5 @@ module.exports = {
     loginRegForm,
     createEditForm
 }
+
+

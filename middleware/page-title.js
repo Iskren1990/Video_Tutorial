@@ -1,4 +1,4 @@
-const { titles } = require("../utils/strings");
+const { titles } = require("../config/strings");
 
 function setTitle(req, res, next) {
     const titleKey = req.path.split("/")[1];

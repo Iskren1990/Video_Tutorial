@@ -1,4 +1,4 @@
-const view = require("../utils/strings").views;
+const view = require("../config/strings").views;
 
 function errCtn(req, res, next) {
     res.locals.error === [] ? true : res.locals.error = [];
@@ -7,7 +7,7 @@ function errCtn(req, res, next) {
 
 function globalErrorHandler(err, req, res, next) {
     // console.log("Global error: ", err);
-
+    console.log(err);
     let path = req.path;
     let id = req.params.id === undefined ? "" : "/" + req.params.id;
     req.user.create = path === "/create";
