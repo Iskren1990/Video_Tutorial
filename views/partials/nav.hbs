@@ -7,14 +7,15 @@
             <a class="nav-link" href="/">Home </a>
         </li>
 
+        {{#if isLogged}}
         <li class="nav-item">
-            <a class="nav-link" href="#">Welcome, {{username}}</a>
+            <a class="nav-link" href="/">Welcome, {{username}}</a>
         </li>
 
         <li class="nav-item">
             <a class="nav-link" href="/logout">Logout</a>
         </li>
-
+        {{else}}
         <li class="nav-item">
             <a class="nav-link" href="/login">Login</a>
         </li>
@@ -22,6 +23,6 @@
         <li class="nav-item">
             <a class="nav-link" href="/register">Register</a>
         </li>
-
+        {{/if}}
     </ul>
 </nav>

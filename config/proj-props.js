@@ -13,13 +13,16 @@ module.exports = {
     errorMsg: {
         wrongUname: "Incorrect username or password.",
         wrongEmail: "Incorrect email or password.",
-        wrongLength: "Should be more than 3 characters.",
+        wrongLength: (limit="the minimum") => `Should be more than ${limit} characters.`,
         wrongChar: "Latin characters and numbers.",
         notEqualPass: "Both passwords must match",
-        emptyField: "Name, Price and ImageUrl are required.",
+        emptyField: "Name, Price and Image Url are required.",
         emailUsed: "Email is already taken, please use another",
+        unameUsed: "Username is already taken, please use another",
         wrongCred: "Wrong credentials",
         notNumber: "Price should be a number",
+        notUnique: (name="ID") => `${name} should be unique`,
+        general: "Something went wrong, please excuse us and try again",
     },
     views: {
         "/": "home",

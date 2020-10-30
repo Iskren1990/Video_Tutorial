@@ -1,8 +1,9 @@
-const errors = require("../config/strings").errorMsg;
+const errors = require("../config/proj-props").errorMsg;
+const { objTrimmer } = require("../utils/index");
 
 function loginRegForm(req, res, next) {
 
-    req.body = sanitizeObj(req.body);
+    req.body = objTrimmer(req.body);
 
     const { username, password, rePassword } = req.body;
     const regex = /[a-z0-9]{5,}/i;
@@ -23,35 +24,28 @@ function loginRegForm(req, res, next) {
         return;
     }
 
-
     next();
 }
 
 function createEditForm(req, res, next) {
-    
-    req.body = sanitizeObj(req.body);
 
-    let { name, price, imageUrl, description, brand } = req.body;
-    price = price.replace(",", ".");
+    req.body = objTrimmer(req.body);
 
-    [name, imageUrl].forEach(x =>
-        x.length > 0
-            ? true
-            : res.locals.error.push(errors.emptyField)
-    );
+    const { title, description, imageUrl } = req.body;
+    req.body.isPublic = req.body.isPublic == "on";
 
-    if (!/[0-9]+(,[0-9]{1,2})?/.test(price)) {
-        res.locals.error.push(errors.notNumber)
-    }
+    if (description.length < 50) res.locals.error.push(errors.wrongLength(50));
+
+    const y = 0;
+    [title, description, imageUrl].forEach(x => {
+        if (x.length <= 0 && y === 0) res.locals.error.push(errors.emptyField) && y++;
+    });
 
     if (res.locals.error.length > 0) {
         next(res.locals.error);
         return;
     }
-
-    req.body = { name, price: price, imageUrl, description: description || "No description", brand: brand || "No Brand" };
-
-
+    
     next();
 }
 

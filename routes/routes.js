@@ -21,7 +21,7 @@ function routes(app) {
     app.get("/edit/:id", guestUserStop, edit.get);
     app.post("/edit/:id", guestUserStop, createEditForm, edit.post);
 
-    app.get("/deleted/:id", guestUserStop, deleted.get);
+    app.get("/delete/:id", guestUserStop, deleted.get);
 
     app.get("/enroll/:id", guestUserStop, enroll.get);
 

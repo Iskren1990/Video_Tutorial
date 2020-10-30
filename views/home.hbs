@@ -6,7 +6,7 @@
     <a href="/create" class="btn btn-warning ">Create Course</a>
     <form class="search float-right">
         <label>Search: </label>
-        <input type="text">
+        <input type="text" name="search" >
         <input type="submit" class="btn btn-info" value="Search">
     </form>
 </section>
@@ -15,22 +15,22 @@
     <div class="row ">
         <div class="card-deck d-flex justify-content-center">
 
-            {{#if courses}}
+            {{#each courses}}
 
             <div class="card mb-4">
                 <img class="card-img-top"
-                    src="https://blog.cyberpanel.net/wp-content/uploads/2019/03/express-js-cyberpanel.jpeg"
+                    src="{{imageUrl}}"
                     alt="Card image cap" width="400">
                 <div class="card-body">
-                    <h4 class="card-title">ExpressJS</h4>
+                    <h4 class="card-title">{{title}}</h4>
                 </div>
                 <div class="card-footer">
-                    <a href=""><button type="button" class="btn btn-info">Details</button></a>
-                    <small class="float-right">Date...</small>
+                    <a href="/details/{{_id}}"><button type="button" class="btn btn-info">Details</button></a>
+                    <small class="float-right">{{createdAt}}</small>
                 </div>
             </div>
 
-            {{/if}}
+            {{/each}}
 
         </div>
     </div>
@@ -58,18 +58,18 @@
 
             <div class="card-deck">
 
-                {{#if courser}}
+                {{#each courses}}
 
                 <div class="card mb-4">
                     <img class="card-img-top"
-                        src="https://blog.cyberpanel.net/wp-content/uploads/2019/03/express-js-cyberpanel.jpeg"
+                        src="{{imageUrl}}"
                         alt="Card image cap" width="400">
                     <div class="card-body">
-                        <h4 class="card-title">ExpressJS</h4>
+                        <h4 class="card-title">{{title}}</h4>
                     </div>
                 </div>
 
-                {{/if}}
+                {{/each}}
 
             </div>
 
