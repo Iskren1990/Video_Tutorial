@@ -5,8 +5,8 @@ function establishDbConnection(conf) {
         conf.uri(conf),
         conf.dbOpt,
         (err) => {
-            if (err) console.log("Mongoose connection error: ", err)
-            if (!err) console.log("DB connection established");
+            if (err) console.error("Mongoose connection error: ", err.join("\n"))
+            if (!err) console.info(`DB connection established`);
         }
     );
 }

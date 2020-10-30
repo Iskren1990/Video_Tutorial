@@ -1,3 +1,5 @@
 <section class="notifications">
-    <p class="notification-message">{{#each error}}{{this}}{{/each}}</p>
+    {{#each error}}
+    <p class="notification-message">{{this}}</p>
+    {{/each}}
 </section>
